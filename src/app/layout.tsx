@@ -1,25 +1,37 @@
-import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import type { Metadata } from "next";
+import { DM_Mono, DM_Sans } from "next/font/google";
+import "./globals.css";
 
-import './globals.css';
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: `TypeScript starter for Next.js by João Pedro Schmitz`,
-  description: `TypeScript starter for Next.js that includes all you need to build amazing apps`,
+  title: "Bountti Dashboard",
+  description: "Bountti payment platform dashboard",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable}`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${dmSans.variable} ${dmMono.variable} font-sans antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

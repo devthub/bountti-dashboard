@@ -1,15 +1,10 @@
 @import "tailwindcss";
+
 @import "tw-animate-css";
+
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
-
-@media (prefers-color-scheme:dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 html,
 body {
@@ -33,15 +28,21 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme:dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-dm-sans);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+  
+  --color-bountti-cyan: var(--bountti-cyan);
+  --color-bountti-cyan-light: var(--bountti-cyan-light);
+  --color-bountti-cyan-mid: var(--bountti-cyan-mid);
+  --color-bountti-dark: var(--bountti-dark);
+  --color-bountti-mid: var(--bountti-mid);
+  --color-bountti-sidebar: var(--bountti-sidebar);
+  --color-bountti-green: var(--bountti-green);
+  --color-bountti-red: var(--bountti-red);
+  --color-bountti-amber: var(--bountti-amber);
+  
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,29 +51,39 @@ a {
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
+  
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
+  
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
+  
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
+  
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -83,81 +94,110 @@ a {
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /*
+  Bountti base palette
+  Derived from the uploaded static dashboard prototype:
+  cyan #00BFEA, dark #1E1E1E, sidebar #181818,
+  grey scale, success, warning, and destructive tokens.
+  */
+  --bountti-cyan: oklch(0.764 0.154 220.6);
+  --bountti-cyan-light: oklch(0.972 0.026 220.1);
+  --bountti-cyan-mid: oklch(0.912 0.069 220.4);
+  --bountti-dark: oklch(0.238 0 0);
+  --bountti-mid: oklch(0.289 0 0);
+  --bountti-sidebar: oklch(0.197 0 0);
+  --bountti-white: oklch(1 0 0);
+  --bountti-grey-50: oklch(0.982 0.004 247.9);
+  --bountti-grey-100: oklch(0.949 0 0);
+  --bountti-grey-200: oklch(0.899 0 0);
+  --bountti-grey-400: oklch(0.683 0 0);
+  --bountti-grey-600: oklch(0.463 0 0);
+  --bountti-green: oklch(0.723 0.192 149.6);
+  --bountti-red: oklch(0.637 0.237 25.3);
+  --bountti-amber: oklch(0.769 0.188 70.1);
+  /*
+  shadcn semantic tokens
+  */
+  --background: var(--bountti-grey-50);
+  --foreground: var(--bountti-dark);
+  --card: var(--bountti-white);
+  --card-foreground: var(--bountti-dark);
+  --popover: var(--bountti-white);
+  --popover-foreground: var(--bountti-dark);
+  --primary: var(--bountti-dark);
+  --primary-foreground: var(--bountti-white);
+  --secondary: var(--bountti-grey-100);
+  --secondary-foreground: var(--bountti-dark);
+  --muted: var(--bountti-grey-100);
+  --muted-foreground: var(--bountti-grey-400);
+  --accent: var(--bountti-cyan-light);
+  --accent-foreground: var(--bountti-cyan);
+  --destructive: var(--bountti-red);
+  --border: var(--bountti-grey-200);
+  --input: var(--bountti-grey-200);
+  --ring: var(--bountti-cyan);
+  --chart-1: var(--bountti-cyan);
+  --chart-2: var(--bountti-dark);
+  --chart-3: var(--bountti-grey-400);
+  --chart-4: var(--bountti-green);
+  --chart-5: var(--bountti-amber);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /*
+  shadcn sidebar tokens
+  */
+  --sidebar: var(--bountti-sidebar);
+  --sidebar-foreground: oklch(0.715 0 0);
+  --sidebar-primary: var(--bountti-cyan);
+  --sidebar-primary-foreground: var(--bountti-dark);
+  --sidebar-accent: oklch(0.764 0.154 220.6 / 12%);
+  --sidebar-accent-foreground: var(--bountti-white);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: var(--bountti-cyan);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
+  --background: var(--bountti-dark);
+  --foreground: var(--bountti-white);
+  --card: var(--bountti-mid);
+  --card-foreground: var(--bountti-white);
+  --popover: var(--bountti-mid);
+  --popover-foreground: var(--bountti-white);
+  --primary: var(--bountti-cyan);
+  --primary-foreground: var(--bountti-dark);
+  --secondary: oklch(0.255 0 0);
+  --secondary-foreground: var(--bountti-white);
+  --muted: oklch(0.255 0 0);
+  --muted-foreground: var(--bountti-grey-400);
+  --accent: oklch(0.764 0.154 220.6 / 14%);
+  --accent-foreground: var(--bountti-cyan);
+  --destructive: var(--bountti-red);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --ring: var(--bountti-cyan);
+  --chart-1: var(--bountti-cyan);
+  --chart-2: var(--bountti-green);
+  --chart-3: var(--bountti-amber);
+  --chart-4: var(--bountti-grey-400);
+  --chart-5: var(--bountti-red);
+  --sidebar: var(--bountti-sidebar);
+  --sidebar-foreground: oklch(0.78 0 0);
+  --sidebar-primary: var(--bountti-cyan);
+  --sidebar-primary-foreground: var(--bountti-dark);
+  --sidebar-accent: oklch(0.764 0.154 220.6 / 12%);
+  --sidebar-accent-foreground: var(--bountti-white);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: var(--bountti-cyan);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
   }
+  
   html {
     @apply font-sans;
   }
