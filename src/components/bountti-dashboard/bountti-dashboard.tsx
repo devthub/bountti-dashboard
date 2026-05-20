@@ -62,7 +62,7 @@ export function BounttiDashboard() {
           onToolChange={setActiveTool}
         />
         <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto w-full max-w-[1680px] space-y-6 px-6 py-6 lg:px-7 lg:py-7">
+          <div className="mx-auto w-full max-w-420 space-y-6 px-6 py-6 lg:px-7 lg:py-7">
             {safeActivePage === "dashboard" ? <DashboardOverview /> : null}
             {safeActivePage === "apm" ? <ApmControls /> : null}
             {safeActivePage === "users" ? <UserManagement role={role} /> : null}

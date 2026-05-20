@@ -22,7 +22,7 @@ export function StatCard({
     <Card className="relative overflow-hidden">
       <div
         className={cn(
-          "absolute inset-x-0 top-0 h-[3px] bg-border",
+          "absolute inset-x-0 top-0 h-0.75 bg-border",
           highlight && "bg-bountti-cyan",
         )}
       />
