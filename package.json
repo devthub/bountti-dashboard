@@ -1,15 +1,15 @@
 {
-  "name": "typescript-nextjs-starter",
+  "name": "bountti-dashboard",
   "version": "1.0.0",
   "private": true,
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "description": "Bountti Dashboard is a web application built with Next.js and TypeScript, designed to provide users with an intuitive interface for managing their Bountti accounts, tracking transactions, and accessing various features related to their financial activities. The dashboard offers a seamless user experience, allowing users to easily navigate through their account information, view transaction history, and utilize tools for financial management. With a focus on security and performance, Bountti Dashboard aims to deliver a reliable platform for users to stay on top of their finances and make informed decisions.",
   "keywords": [
     "nextjs",
     "starter",
     "typescript"
   ],
   "license": "MIT",
-  "author": "João Pedro Schmitz (@jpedroschmitz)",
+  "author": "Wendell Encorporado",
   "type": "module",
   "scripts": {
     "dev": "next dev",
