@@ -1,22 +1,13 @@
-import Image from 'next/image';
-
-import styles from './page.module.css';
+"next/image";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image className={styles.logo} src="/next.svg" alt="Next.js logo" width={100} height={20} priority />
-        <div className={styles.intro}>
-          <h1>Non-opinionated TypeScript starter for Next.js</h1>
-          <p>Highly scalable foundation with the best DX. All the tools you need to build your Next project.</p>
-        </div>
-        <div className={styles.ctas}>
-          <a className={styles.primary} href="https://joaopedro.dev" target="_blank" rel="noreferrer">
-            Created by João Pedro
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1 className="text-4xl font-bold">Welcome to Next.js!</h1>
+      <p className="mt-4 text-lg">
+        Get started by editing{" "}
+        <code className="bg-gray-200 p-1 rounded">src/app/page.tsx</code>
+      </p>
+    </main>
   );
 }
